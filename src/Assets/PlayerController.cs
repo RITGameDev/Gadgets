@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour {
 	public KeyCode use;
 
 	// Movement variables
-	bool isInAir = false;
+	public int jumpsRem = 2;
 	string faceDir = "";
 	float chrSpd = .25f;
 	float jumpFrc = 512f;
@@ -45,13 +45,14 @@ public class PlayerController : MonoBehaviour {
 		else if (Input.GetKey(right)) {
 			faceDir = "right";
 			transform.Translate(new Vector2(chrSpd, 0)); }
-		if (Input.GetKeyDown(jump) && !isInAir){
+		if (Input.GetKeyDown(jump) && jumpsRem > 0){
+			rb.velocity = new Vector2(rb.velocity.x, 0);
 			rb.AddForce(new Vector2(0, jumpFrc));
 			chrSpd /= 2;
-			isInAir = true; }
+			jumpsRem -= 1; }
 		// Using items
 		if (Input.GetKeyDown(use) && hasPlat) {
-			tempPlat.transform.position = new Vector2(transform.position.x + 1.1f, transform.position.y);
+			tempPlat.transform.position = new Vector2(transform.position.x, transform.position.y + 1.1f);
 			tempPlat.transform.rotation = transform.rotation; 
 			hasPlat = false;
 			tempPlat.SetActive(true); }
@@ -70,7 +71,7 @@ public class PlayerController : MonoBehaviour {
 		 droplets. */
 		if (coll.gameObject.tag == "Ground") {
 			chrSpd = 0.25f;
-			isInAir = false; }
+			jumpsRem = 2; }
 		else if (coll.gameObject.tag == "Water" && hasBuck) {
 			coll.gameObject.SetActive(false); 
 			buck++; 

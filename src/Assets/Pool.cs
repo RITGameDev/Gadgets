@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class Pool : MonoBehaviour {
 	public GameObject item;
-	int poolAmt = 3;
+	int poolAmt = 80;
 	public List<GameObject> pool;
 
 	void Awake(){
