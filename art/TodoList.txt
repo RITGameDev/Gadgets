@@ -1,6 +1,9 @@
 ART LIST
 
-Animations: Character
+Image: Outer Bomb
 
+Animations (128x128, animated): Character (128x128) idle, walking, dying, jumping up/mid/falling
 
-Tiles: 
+Tiles (64x64): Bomb floors, bucket, drain sign, grates, sprinklers
+
+Gadgets (128x64, animated): walking spider-bomb-robot with a flashing red light
