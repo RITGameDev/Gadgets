@@ -305,6 +305,7 @@ MonoBehaviour:
   m_SubmitButton: Submit
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
+  m_RepeatDelay: .5
   m_AllowActivationOnMobileDevice: 0
 --- !u!114 &168970431
 MonoBehaviour:
@@ -344,6 +345,7 @@ GameObject:
   - 50: {fileID: 263057748}
   - 61: {fileID: 263057747}
   - 114: {fileID: 263057746}
+  - 114: {fileID: 263057751}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -362,10 +364,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d18da6140d41b6248aec1f5856e86de5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  left: 97
-  right: 100
-  jump: 107
-  use: 106
   jumpsRem: 2
   hasBuck: 1
   tempPlat: {fileID: 1158430772}
@@ -385,6 +383,7 @@ BoxCollider2D:
   m_Size: {x: 1, y: 1}
 --- !u!50 &263057748
 Rigidbody2D:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -393,11 +392,11 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 2
-  m_FixedAngle: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!212 &263057749
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -436,6 +435,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!114 &263057751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 263057745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 204fd0f921b70494f96866108b9a579f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  left: 97
+  right: 100
+  jump: 32
+  use: 106
 --- !u!4 &513527681 stripped
 Transform:
   m_PrefabParentObject: {fileID: 421014, guid: 792b49005c8c5e4409a57f900da73b92, type: 2}
@@ -708,10 +722,12 @@ Camera:
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
+  m_TargetEye: 3
   m_HDR: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
+  m_StereoMirrorMode: 0
 --- !u!4 &595093889
 Transform:
   m_ObjectHideFlags: 0
